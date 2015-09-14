@@ -19,8 +19,32 @@ def create_user
   end
 end
 
-create_user
+def show_user
+  url = Addressable::URI.new(
+    scheme: 'http',
+    host: 'localhost',
+    port: 3000,
+    path: '/users/4'
+  ).to_s
 
-# if __FILE__ == $PROGRAM_NAME
-#
-# end
+  begin
+    puts RestClient.get(url)
+  rescue RestClient::Exception
+    puts "error"
+    # render json: , status: :unprocessable_entity
+  end
+end
+
+def destroy_user
+  url = Addressable::URI.new(
+    scheme: 'http',
+    host: 'localhost',
+    port: 3000,
+    path: '/users/3'
+  ).to_s
+
+  puts RestClient.delete(url)
+end
+
+# create_user
+destroy_user
