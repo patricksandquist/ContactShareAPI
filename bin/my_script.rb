@@ -9,10 +9,14 @@ def create_user
     path: '/users.json'
   ).to_s
 
-  puts RestClient.post(
-    url,
-    { user: { name: "Gizmo", Email: "gizmo@gizmo.gizmo" } }
-  )
+  begin
+    puts RestClient.post(
+      url,
+      { user: { name: "Gizmo", Email: "gizmo@gizmo.gizmo" } }
+    )
+  rescue RestClient::Exception
+    puts "unprocessable_entity error"
+  end
 end
 
 create_user
