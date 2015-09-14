@@ -8,3 +8,14 @@
 
 matt = User.create!({ username: "matt" })
 patrick = User.create!({ username: 'patrick' })
+
+matts_contact = Contact.create!({user_id: 1, name: "Santa", email: "Kringle@pole.north"})
+pats_contact = Contact.create!({user_id: 2, name: "Easter Bunny", email: "Hop@gmail.org"})
+matts_contact2 = Contact.create!({user_id: 1, name: "Batman", email: "bruce@wayne.ent"})
+
+shared_contact1 = ContactShare.create!({contact_id: 1, user_id: 2})
+# shared_contact1 = ContactShare.create!({contact_id: 2, user_id: 1})
+
+
+#  contact_id :integer
+#  user_id    :integer
