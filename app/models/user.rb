@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :given_contacts_shares,
+    :given_contact_shares,
     class_name: "ContactShare",
     primary_key: :id,
     foreign_key: :user_id
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
   has_many(
     :given_contacts,
-    through: :given_contacts_shares,
+    through: :given_contact_shares,
     source: :contact
   )
 end
