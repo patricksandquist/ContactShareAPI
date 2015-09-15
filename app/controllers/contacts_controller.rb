@@ -1,9 +1,8 @@
 class ContactsController < ApplicationController
   def index
-    # contacts that the user owns
-    # render json: Contact.all
-    all_contacts = User.find(params[:user_id]).contacts + User.find(params[:user_id]).given_contacts
-
+    all_contacts = []
+    all_contacts += User.find(params[:user_id]).contacts  # All contacts a user owns
+    all_contacts += User.find(params[:user_id]).given_contacts  # All contacts a user has been given
     render json: all_contacts
   end
 
