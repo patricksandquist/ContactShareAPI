@@ -20,16 +20,15 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :given_contacts,
+    :given_contacts_shares,
     class_name: "ContactShare",
     primary_key: :id,
-    foreign_key: :user_id,
-    dependent: :destroy
+    foreign_key: :user_id
   )
 
   has_many(
-    :shared_contacts,
-    through: :given_contacts,
+    :given_contacts,
+    through: :given_contacts_shares,
     source: :contact
   )
 end
